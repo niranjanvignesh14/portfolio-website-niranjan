@@ -78,7 +78,12 @@ function initSmoothScroll(){
       document.querySelector(href)?.scrollIntoView({behavior:'smooth', block:'start'});
       // close mobile nav if open
       const mobileNav = qs('#mobile-nav');
-      if(mobileNav && mobileNav.classList.contains('open')) mobileNav.classList.remove('open');
+      const menuToggle = qs('#menu-toggle');
+      if(mobileNav && mobileNav.classList.contains('open')){
+        mobileNav.classList.remove('open');
+        mobileNav.setAttribute('aria-hidden', 'true');
+        menuToggle?.setAttribute('aria-expanded', 'false');
+      }
     });
   });
 }
@@ -175,10 +180,10 @@ function initContactForm(){
       return;
     }
 
-    // If you want to actually send data, wire up a backend endpoint here (fetch to your API)
-    // For demo, just show a success toast and reset the form
-    showToast('Thanks! Your message has been noted. (Form not submitted in demo)');
-    form.reset();
+    const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+    window.location.href = `mailto:NiranjanVignesh6363@gmail.com?subject=${subject}&body=${body}`;
+    showToast('Opening your email app...');
   });
 
   function showToast(msg){
