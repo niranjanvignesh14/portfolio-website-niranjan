@@ -74,8 +74,6 @@ web_modules/
 
 # dotenv environment variable files
 .env
-.env.*
-!.env.example
 .env.development.local
 .env.test.local
 .env.production.local
@@ -92,7 +90,6 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
-.output
 
 # Gatsby files
 .cache/
@@ -103,11 +100,8 @@ dist
 # vuepress build output
 .vuepress/dist
 
-# vuepress v2.x temp directory
+# vuepress v2.x temp and cache directory
 .temp
-
-# Sveltekit cache directory
-.svelte-kit/
 .cache
 
 # vitepress build output
@@ -128,32 +122,15 @@ dist
 # DynamoDB Local files
 .dynamodb/
 
-# Firebase cache directory
-.firebase/
-
 # TernJS port file
 .tern-port
 
 # Stores VSCode versions used for testing VSCode extensions
 .vscode-test
 
-# pnpm
-.pnpm-store
-
-# yarn v3
-.pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-
-# Vite files
-vite.config.js.timestamp-*
-vite.config.ts.timestamp-*
-.vite/
+# yarn v2
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
+.pnp.*
