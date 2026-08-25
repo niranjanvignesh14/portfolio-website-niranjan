@@ -48,6 +48,8 @@ body{
   line-height:1.5;
   overflow-x:hidden;
 }
+.skip-link{position:fixed;left:16px;top:-48px;z-index:100;padding:10px 14px;border-radius:10px;background:var(--accent-3);color:#101522;font-weight:800;text-decoration:none;transition:top .2s ease}
+.skip-link:focus{top:16px}
 body::before{
   content:'';
   position:fixed;
@@ -103,6 +105,7 @@ body::before{
 }
 .nav-links a:hover, .nav-links a.active{color:#101522;background:var(--accent-3);}
 .nav-links a.active{box-shadow:0 0 18px rgba(216,243,107,.2)}
+.nav-links a:focus-visible,.mobile-nav a:focus-visible,.btn:focus-visible,.btn-icon:focus-visible,.filter:focus-visible,.proj-filter:focus-visible,.skill:focus-visible{outline:2px solid var(--accent-3);outline-offset:3px}
 .nav-actions{display:flex;gap:8px;align-items:center}
 .btn-icon{background:transparent;border:1px solid transparent;color:var(--muted);padding:8px;border-radius:10px;cursor:pointer}
 .btn-icon:hover{color:var(--text);transform:translateY(-2px)}
@@ -215,6 +218,8 @@ section > h3::before{content:'// ';font:500 .9rem 'DM Mono',monospace;color:var(
   .hero::after{display:none}
   .name{font-size:clamp(40px,13vw,58px)}
   section{margin-bottom:68px}
+  .hero-cta{flex-wrap:wrap}
+  .hero-cta .btn{flex:1 1 180px;justify-content:center}
 }
 
 @media (min-width:701px){

@@ -213,11 +213,13 @@ function initThemeSwitcher(){
   function applyTheme({mode, accent}){
     if(mode === 'light') body.classList.add('light'); else body.classList.remove('light');
     if(accent === 'cyan'){
-      root.style.setProperty('--accent','#06b6d4');
-      root.style.setProperty('--accent-2','#06b6d4');
+      root.style.setProperty('--accent','#37d6d0');
+      root.style.setProperty('--accent-2','#ff8066');
+      root.style.setProperty('--accent-3','#d8f36b');
     } else {
-      root.style.setProperty('--accent','#8b5cf6');
-      root.style.setProperty('--accent-2','#06b6d4');
+      root.style.setProperty('--accent','#ff8066');
+      root.style.setProperty('--accent-2','#d8f36b');
+      root.style.setProperty('--accent-3','#37d6d0');
     }
   }
 
@@ -231,7 +233,11 @@ function initThemeSwitcher(){
 function initMobileMenu(){
   const toggle = qs('#menu-toggle');
   const mobileNav = qs('#mobile-nav');
-  toggle?.addEventListener('click', ()=> mobileNav?.classList.toggle('open'));
+  toggle?.addEventListener('click', ()=> {
+    const isOpen = mobileNav?.classList.toggle('open') ?? false;
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    mobileNav?.setAttribute('aria-hidden', String(!isOpen));
+  });
 }
 
 // ---------- Back to top
